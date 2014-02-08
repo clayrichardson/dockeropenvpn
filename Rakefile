@@ -6,7 +6,7 @@ task :build do
 end
 
 task :run do
-  sh('docker run -privileged -t -p 443:443 openvpn')
+  sh('docker run -privileged -t -p 443:443/udp openvpn')
 end
 
 task :attach do
@@ -14,11 +14,11 @@ task :attach do
 end
 
 task :interactive do
-  sh('docker run -privileged -t -p 443:443 -i openvpn')
+  sh('docker run -privileged -t -p 443:443/udp -i openvpn')
 end
 
 task :shell do
-  sh('docker run -privileged -t -p 443:443 -i openvpn /bin/bash')
+  sh('docker run -privileged -t -p 443:443/udp -i openvpn /bin/bash')
 end
 
 task :kill do
